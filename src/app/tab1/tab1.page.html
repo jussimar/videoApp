@@ -10,6 +10,7 @@
     <ion-searchbar placeholder="Buscar"></ion-searchbar>
 
     <ion-list>
+      <ion-item-sliding>
       <ion-item lines="full">
         <ion-thumbnail slot="start">
           <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fR0lfsB7YRNy2NQo9Ii7CPnYp31.jpg">
@@ -27,5 +28,37 @@
           </ion-label>
         </ion-chip>
       </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option>
+          <ion-icon slot="icon-only" name="star"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+
+    <ion-item-sliding>
+      <ion-item lines="full">
+        <ion-thumbnail slot="start">
+          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fR0lfsB7YRNy2NQo9Ii7CPnYp31.jpg">
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap">
+          <div>
+            <h1>RoboCop 2 (1987)</h1>
+            <p>08/10/1987-  1h 42m</p>
+            <p>Ação, Thriller, Ficção científica</p>
+          </div>
+        </ion-label>
+        <ion-chip>
+          <ion-label color="success" outline>
+            72%
+          </ion-label>
+        </ion-chip>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option>
+          <ion-icon slot="icon-only" name="star"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
     </ion-list>
 </ion-content>
