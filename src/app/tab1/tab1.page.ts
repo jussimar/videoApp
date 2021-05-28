@@ -1,3 +1,5 @@
+import { Router, RouterModule } from '@angular/router';
+import { DadosService } from './../services/dados.service';
 import { IFilme } from './../models/IFilme.model';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
@@ -19,7 +21,8 @@ export class Tab1Page {
       duracao:'1h 42m',
       classificacao: 72,
       cartaz:'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fR0lfsB7YRNy2NQo9Ii7CPnYp31.jpg',
-      generos:['Ação', 'Thriller', 'Ficção','científica']
+      generos:['Ação', 'Thriller', 'Ficção','científica'],
+      pagina:'/robocop'
     },
     {
       nome: 'RoboCop (1987) 2',
@@ -27,14 +30,22 @@ export class Tab1Page {
       duracao:'1h 42m',
       classificacao: 72,
       cartaz:'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fR0lfsB7YRNy2NQo9Ii7CPnYp31.jpg',
-      generos:['Ação', 'Thriller', 'Ficção','científica']
+      generos:['Ação', 'Thriller', 'Ficção','científica'],
+      pagina:'/robocop2'
     }
   ];
 
   constructor(
     public alertController: AlertController,
-    public toastController: ToastController
+    public toastController: ToastController,
+    public dadosService: DadosService,
+    public route: Router
     ) {}
+
+  exibirFilme(filme: IFilme){
+    this.dadosService.guardarDados('filme', filme);
+    this.route.navigateByUrl('/dados-filme');
+  }
 
   async exibirAlertaFavorito() {
     const alert = await this.alertController.create({
