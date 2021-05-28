@@ -25,13 +25,21 @@ export class Tab1Page {
       pagina:'/robocop'
     },
     {
-      nome: 'RoboCop (1987) 2',
-      lancamento: '08/10/1987',
-      duracao:'1h 42m',
+      nome: 'RoboCop (1988) 2',
+      lancamento: '08/10/1988',
+      duracao:'1h 50m',
       classificacao: 72,
       cartaz:'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fR0lfsB7YRNy2NQo9Ii7CPnYp31.jpg',
       generos:['Ação', 'Thriller', 'Ficção','científica'],
       pagina:'/robocop2'
+    },
+    {
+      nome: 'RoboCop (1989) 3',
+      lancamento: '08/10/1989',
+      duracao:'2h 42m',
+      classificacao: 72,
+      cartaz:'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fR0lfsB7YRNy2NQo9Ii7CPnYp31.jpg',
+      generos:['Ação', 'Thriller', 'Ficção','científica'],
     }
   ];
 
