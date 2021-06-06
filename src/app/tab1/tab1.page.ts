@@ -1,3 +1,5 @@
+import { IFilmeApi, IListaFilmes } from './../models/IFilmeApi.model';
+import { FilmeService } from './../services/filme.service';
 import { Router, RouterModule } from '@angular/router';
 import { DadosService } from './../services/dados.service';
 import { IFilme } from './../models/IFilme.model';
@@ -12,7 +14,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  titulo = 'Vídeos App';
+  titulo = 'Filmes';
 
   listaVideos: IFilme[] = [
     {
@@ -43,14 +45,28 @@ export class Tab1Page {
     }
   ];
 
+  listaFilmes: IListaFilmes;
+
   constructor(
     public alertController: AlertController,
     public toastController: ToastController,
     public dadosService: DadosService,
+    public filmeService: FilmeService,
     public route: Router
     ) {}
 
-  exibirFilme(filme: IFilme){
+    buscarFilmes(evento: any){
+      console.log(evento.target.value);
+      const busca = evento.target.value;
+      if(busca && busca.trim() !== ''){
+        this.filmeService.buscarFilmes(busca).subscribe(dados=>{
+          console.log(dados);
+          this.listaFilmes = dados;
+        });
+      }
+    }
+
+  exibirFilme(filme: IFilmeApi){
     this.dadosService.guardarDados('filme', filme);
     this.route.navigateByUrl('/dados-filme');
   }
