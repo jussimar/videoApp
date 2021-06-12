@@ -14,7 +14,7 @@ export class DadosFilmePage implements OnInit {
   filme: IFilmeApi;
   generos: string[] = [];
 
-  constructor(public dadosService:DadosService) { }
+  constructor(public dadosService: DadosService) { }
 
   ngOnInit() {
     this.filme = this.dadosService.pegarDadaos('filme');

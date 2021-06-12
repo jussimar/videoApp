@@ -1,17 +1,33 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>
-      Tab 2
+      {{titulo}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-
+  <ion-list>
+    <ion-item-sliding *ngFor="let serie of listaSeries">
+    <ion-item lines="full" (click)="exibirFilme(serie)">
+      <ion-thumbnail slot="start">
+        <img [src]="serie.cartaz">
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">
+        <div>
+          <h1>{{serie.nome}}</h1>
+          <p>{{serie.lancamento}}-  {{serie.duracao}}</p>
+          <ion-badge color="light" *ngFor="let genero of serie.generos">
+            {{genero}}
+          </ion-badge>
+        </div>
+      </ion-label>
+      <ion-chip>
+        <ion-label color="success" outline>
+          {{serie.classificacao}}%
+        </ion-label>
+      </ion-chip>
+    </ion-item>
+  </ion-item-sliding>
+  </ion-list>
 </ion-content>
